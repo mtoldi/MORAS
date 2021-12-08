@@ -1,0 +1,13 @@
+CHIP prvib{
+    
+    IN x, y, z;
+    OUT out;
+
+    PARTS:
+
+    Or(a = y, b = z, out = yiliz);
+    Not(in = yiliz, out = notyiliz);
+
+    And(a = x, b = notyiliz, out = out);
+
+}
