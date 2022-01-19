@@ -2,7 +2,7 @@ class Parser:
     def __init__(self):
         self._olines = []
         self._lab = 0
-        self._flag = True     # Je li parsiranje uspjesno?
+        self._flag = True     
         self._labele = []
 
     def parseFile(self, filename):
