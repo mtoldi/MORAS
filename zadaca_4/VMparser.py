@@ -294,9 +294,11 @@ class Parser:
 def main():
     P = Parser()
     
-    P.parseFile("mid")
-    P.parseFile("2a")
-    P.writeFile("2a")
+    P.parseFile("Div2")
+    P.parseFile("Mod2")
+    P.parseFile("fibonacci")
+    P.parseFile("main")
+    P.writeFile("main")
 
 if __name__ == '__main__':
     main()
