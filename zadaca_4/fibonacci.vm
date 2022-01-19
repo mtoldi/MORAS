@@ -1,4 +1,4 @@
-function fib 0
+function fib 1
   push argument 0
   push constant 2
   lt
