@@ -1,19 +1,19 @@
 function fib 0
-push argument 0
-push constant 2
-lt
-if-goto END
-push argument 0
-push constant 2
-sub
-call fibonacci.fib 1 
-push argument 0
-push constant 1
-sub
-call fibonacci.fib 1 
-add                        
-return
+  push argument 0
+  push constant 2
+  lt
+  if-goto END
+  push argument 0
+  push constant 2
+  sub
+  call fibonacci.fib 1 
+  push argument 0
+  push constant 1
+  sub
+  call fibonacci.fib 1 
+  add                        
+  return
 
-label END  
-push argument 0        
-return
+  label END  
+  push argument 0        
+  return
