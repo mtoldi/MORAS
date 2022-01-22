@@ -14,4 +14,9 @@ funcion Main 0
     push constant 5
     call fibonacci.fib 1 
     pop static 2
+    push constant 12
+    push constant 15
+    push constant 27
+    call mid.mid 3
+    pop static 3
     return 
