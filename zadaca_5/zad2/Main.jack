@@ -1,0 +1,49 @@
+class Main
+{
+    function void main()
+    {
+        var Vint vecA, vecB;
+
+        let vecA = Vint.new(2);
+        let vecB = Vint.new(3);
+    
+        do vecA.set(0, 7);
+        do vecA.set(1, 4);
+        do vecA.set(2, 3);
+
+        do Output.printInt(vecA.len());
+        do Output.println();
+        do vecA.Vprint();
+
+        do vecB.set(0, 8);
+        do vecB.set(1, 4);
+        do vecB.set(3, 2);
+        do vecB.set(4, 5);
+        do vecB.set(5, 7);
+        do vecB.set(7, 9);
+
+        do Output.printInt(vecB.len());
+        do Output.println();
+        do vecB.Vprint();
+
+        do Vint.is_eq(vecA, vecB);
+
+        do Output.printInt(vecA.get(2));
+        do Output.println();
+        do Output.printInt(vecB.get(7));
+        do Output.println();
+
+        if (Vint.is_eq(vecA, vecB) = false)
+        {
+            do Output.printString("Vektori nisu jednaki.");
+            do Output.println();
+        }
+        else
+        {
+            do Output.printString("Vektori su jednaki.");
+            do Output.println();
+        }
+        
+        return;
+    }
+}

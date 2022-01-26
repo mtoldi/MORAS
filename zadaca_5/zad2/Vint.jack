@@ -1,0 +1,81 @@
+class Vint
+{
+    field int capacity;
+    field Array vector;
+
+     method int len()
+    {
+        return capacity;
+    }
+
+    constructor Vint new(int n)
+    {
+        if(n<0){
+            let capacity = 1;
+            let vector = Array.new(1);
+            return this;
+        }
+        let capacity = pot2(n);
+        let vector = Array.new(capacity);
+        return this;
+    }
+
+    method int pot2 (int n)
+    {
+        var int size, i;
+        let size = 1;
+        while(i<n)
+        {
+            let size = size * 2;
+            let i = i+1;
+        }
+        return size;
+    }
+
+    method void set(int k, int v)
+    {
+        let vector[k] = v;
+        return;
+    }
+
+    method int get(int k)
+    {
+        return vector[k];
+    }
+
+    function bool is_eq(Vint a, Vint b)
+    {
+        var int i;
+        
+        if (~(a.len() = b.len()))
+        {
+            return false;
+        }
+
+        while(i < a.len())
+        {
+            if (~(a.get(i) = b.get(i)))
+            {
+                return false;
+            }
+            let i = i + 1;
+        }
+
+        return true;
+    }  
+
+    method void Vprint()
+    {
+        var int i;
+        while(i < capacity)
+        {
+            do Output.printInt(vector[i]);
+            do Output.printString(" ");
+            let i = i + 1;
+        }
+
+        do Output.println();
+        return;
+    }
+    
+}
