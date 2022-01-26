@@ -13,7 +13,7 @@ class Main
 
         do Output.printInt(vecA.len());
         do Output.println();
-        do vecA.Vprint();
+        do vecA.print();
 
         do vecB.set(0, 8);
         do vecB.set(1, 4);
@@ -24,7 +24,7 @@ class Main
 
         do Output.printInt(vecB.len());
         do Output.println();
-        do vecB.Vprint();
+        do vecB.print();
 
         do Vint.is_eq(vecA, vecB);
 
