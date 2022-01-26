@@ -64,7 +64,7 @@ class Vint
         return true;
     }  
 
-    method void Vprint()
+    method void print()
     {
         var int i;
         while(i < capacity)
