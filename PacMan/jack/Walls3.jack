@@ -1,0 +1,95 @@
+class Walls3 {
+
+  field int nWalls;
+  field Array walls;
+
+  constructor Walls3 new() {
+    let nWalls = 22;
+    do createWalls();
+    return this;
+  }
+
+  method void init() {
+    do draw();
+    return;
+  }
+
+  method void createWalls() {
+    var int i, bx;
+    let walls = Array.new(nWalls);
+    //okvir
+    let walls[0] = Wall.new(30, 10, 340, 15);
+    let walls[1] = Wall.new(30, 15, 35, 240);
+    let walls[2] = Wall.new(30, 230, 340, 240);
+    let walls[3] = Wall.new(328, 15, 340, 240);
+    //cage
+    let walls[4] = Wall.new(145, 98, 187, 113);
+    let walls[5] = Wall.new(145, 135, 187, 150);
+    let walls[6] = Wall.new(208, 106, 225, 150);
+
+    let walls[7] = Wall.new(65, 47, 115, 62);
+    
+    let walls[9] = Wall.new(35, 135, 60, 145);
+    let walls[10] = Wall.new(65, 178, 115, 200);
+
+    let walls[11] = Wall.new(180, 15, 195, 62);
+    let walls[18] = Wall.new(150, 47, 180, 62);
+
+    let walls[12] = Wall.new(225, 47, 270, 62);
+    let walls[13] = Wall.new(225, 55, 240, 87);
+
+    let walls[14] = Wall.new(252, 178, 295, 195);
+    let walls[15] = Wall.new(208, 178, 225, 230);
+
+    let walls[16] = Wall.new(250, 135, 335, 150);
+
+    let walls[17] = Wall.new(150, 178, 165, 230);
+
+    let walls[19] = Wall.new(98, 62, 115, 113);
+    let walls[20] = Wall.new(285, 106, 295, 135);
+    let walls[8] = Wall.new(98, 160, 115, 190);
+    let walls[21] = Wall.new(313, 47, 328, 62);
+
+    return;
+  }
+
+  method void draw() {
+    var Wall w;
+    var int i;
+    let i = 0;
+    while (i < nWalls) {
+      let w = walls[i];
+      do w.draw();
+      let i = i + 1;
+    }
+    return;
+  }
+
+  method boolean checkOverlapping(int x1, int y1, int x2, int y2) {
+    var Wall w;
+    var int i;
+    let i = 0;
+    while (i < nWalls) {
+      let w = walls[i];
+      if (w.checkOverlapping(x1, y1, x2, y2)) {
+        return true;
+      }
+      let i = i + 1;
+    }
+    return false;
+  }
+
+  method void dispose() {
+	var Wall w;
+	var int i;
+    let i = 0;
+    while (i < nWalls) {
+      let w = walls[i];
+      do w.dispose();
+      let i = i + 1;
+    }
+	  do walls.dispose();
+    do Memory.deAlloc(this);
+    return;
+  }
+}

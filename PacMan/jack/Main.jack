@@ -1,0 +1,24 @@
+class Main {
+  function void main() {
+    var int key;
+    var Game game;
+    
+    do Splash.show();
+    do Random.seed();
+    do Screen.clearScreen();
+  
+    let game = Game.new();
+    do game.init();
+    
+    while (true) {
+      do game.next();
+      
+      let key = Keyboard.keyPressed();
+      
+      if (~(key = 0)) {
+        do game.handleKey(key);
+      }
+    }
+    return;
+  }
+}

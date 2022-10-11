@@ -1,0 +1,156 @@
+class Game {
+  
+  field Score score;
+
+  field PacMan pacman;
+  field Pellets pellets;
+  field Walls walls;
+  field Ghosts ghosts;
+  field Labels labels;
+
+  constructor Game new() {
+    do createSprites();
+    return this;
+  }
+
+  method void init() {
+    do pacman.init();
+    do walls.init();
+    do pellets.init();
+    do score.init();
+    do ghosts.init();
+    do labels.init();
+    return;
+  }
+
+  method void next() {
+    var int key;
+
+
+    if(score.getlevel()=1){
+      if (score.getscore()=840){
+
+        do newGame2();
+        do score.setlevel2();
+        return;
+      }
+    }
+
+    if(score.getlevel()=2){
+      if (score.getscore()=1460){
+
+        do newGame3();
+        do score.setlevel3();
+        return;
+      }
+    }
+
+    if(score.getlevel()=3){
+      if (score.getscore()=1710){      
+        do Endscreen.show();
+        return;
+      }
+    }
+
+    if (pacman.getIsCaptured()) {
+      do Output.moveCursor(13, 46); 
+      do Output.printString("GAME OVER");
+      do Output.moveCursor(19, 46); 
+      do Output.printString("RESTART");
+      do Output.moveCursor(20, 46); 
+      do Output.printString("- R ");
+	    while (true) {
+		    let key = Keyboard.keyPressed();
+		    if (key = 82) {
+			    do newGame();
+			    return;
+		    }
+	    }
+    }
+    do pacman.next();
+    do ghosts.next();
+    do score.next();
+    return;
+  }
+
+  method void handleKey(int key) {
+    
+    if (key = 82) {
+      do newGame();
+      return;
+    }
+  
+    do pacman.handleKey(key);
+    return;
+  }
+
+	method void newGame() {
+    do disposeSprites();
+    do Screen.clearScreen();
+    do createSprites();
+    do init();
+    return;
+  }
+
+  method void newGame2() {
+    do disposeSprites();
+    do Screen.clearScreen();
+    do createSprites2();
+    do init();
+    return;
+  }
+
+  method void newGame3() {
+    do disposeSprites();
+    do Screen.clearScreen();
+    do createSprites3();
+    do init();
+    return;
+  }
+
+  method void createSprites() {
+    let walls = Walls.new();
+    let pellets = Pellets.new();
+    let pacman = PacMan.new(pellets, walls);
+    let score = Score.new(pellets);
+    let ghosts = Ghosts.new(pacman, walls, pellets);
+    let labels = Labels.new();
+    return;
+  }
+
+  method void createSprites2() {
+    let walls = Walls2.new();
+    let pellets = Pellets.new();
+    let pacman = PacMan.new(pellets, walls);
+    let score = Score.new(pellets);
+    let ghosts = Ghosts.new2(pacman, walls, pellets);
+    let labels = Labels.new();
+    return;
+  }
+
+  method void createSprites3() {
+    let walls = Walls3.new();
+    let pellets = Pellets.new();
+    let pacman = PacMan.new(pellets, walls);
+    let score = Score.new(pellets);
+    let ghosts = Ghosts.new3(pacman, walls, pellets);
+    let labels = Labels.new();
+    return;
+  }
+
+  method void disposeSprites() {
+    do walls.dispose();
+	  do pellets.dispose();
+	  do pacman.dispose();
+	  do score.dispose();
+	  do ghosts.dispose();
+    do labels.dispose();
+    return;
+  }
+
+  method void dispose() {
+    do disposeSprites();
+    do Memory.deAlloc(this);
+    return;
+  }
+}

@@ -1,0 +1,19 @@
+class Splash {
+
+  function void show() {
+    do Screen.setColor(true);
+    
+    do Output.moveCursor(6, 12); 
+    do Output.printString("PAC-MAN");
+    do Output.moveCursor(12, 12); 
+    do Output.printString("MARKO TOLDI - MORAS PROJEKT 2022.");
+    do Output.moveCursor(18, 12); 
+    do Output.printString("PRESS ANY KEY TO START");
+    return;
+  }
+
+  method void dispose() {
+    do Memory.deAlloc(this);
+      return;
+  }
+}

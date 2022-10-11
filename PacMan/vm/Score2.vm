@@ -1,0 +1,87 @@
+function Score2.new 0
+push constant 4
+call Memory.alloc 1
+pop pointer 0
+push constant 0
+pop this 0
+push argument 0
+pop this 2
+push constant 0
+pop this 3
+push constant 2
+pop this 1
+push pointer 0
+return
+function Score2.init 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Score2.draw 1
+pop temp 0
+push constant 0
+return
+function Score2.next 1
+push argument 0
+pop pointer 0
+push this 2
+call Pellets.getCapturedCount 1
+push constant 20
+call Math.multiply 2
+pop local 0
+push local 0
+push this 0
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+pop this 0
+push pointer 0
+call Score2.draw 1
+pop temp 0
+push this 0
+push constant 30
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+not
+pop this 3
+label IF_FALSE1
+label IF_FALSE0
+push constant 0
+return
+function Score2.draw 0
+push argument 0
+pop pointer 0
+push constant 2
+push constant 52
+call Output.moveCursor 2
+pop temp 0
+push this 0
+call Output.printInt 1
+pop temp 0
+push constant 6
+push constant 52
+call Output.moveCursor 2
+pop temp 0
+push this 1
+call Output.printInt 1
+pop temp 0
+push constant 0
+return
+function Score2.getIsWin2 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Score2.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

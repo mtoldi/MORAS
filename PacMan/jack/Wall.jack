@@ -1,0 +1,32 @@
+class Wall {
+  field int leftX, topY, rightX, bottomY;
+
+  constructor Wall new(int x1, int y1, int x2, int y2) {
+    let leftX = x1;
+    let topY = y1;
+    let rightX = x2;
+    let bottomY = y2;
+    return this;
+  }
+
+  method void draw() {
+    do Screen.setColor(true);
+    do Screen.drawRectangle(leftX, topY, rightX, bottomY);
+    return;
+  }
+
+  method boolean checkOverlapping(int x1, int y1, int x2, int y2) {
+    return (
+
+      (x1 < (rightX + 1)) & (x2 > (leftX - 1))
+    ) & (
+
+      (y1 < (bottomY + 1)) & (y2 > (topY - 1))
+    );
+  }
+
+  method void dispose() {
+    do Memory.deAlloc(this);
+    return;
+  }
+}
